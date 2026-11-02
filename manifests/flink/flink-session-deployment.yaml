@@ -1,0 +1,21 @@
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: basic-session-deployment-only-example
+  namespace: flink
+spec:
+  image: flink:2.2
+  flinkVersion: v2_2
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: 2
+  serviceAccount: flink
+  jobManager:
+    resources:
+      requests:
+        memory: "2048m"
+        cpu: "1"
+  taskManager:
+    resources:
+      requests:
+        memory: "2048m"
+        cpu: "1"
